@@ -1,0 +1,3 @@
+# FLSun T1 Pro: give group "gpio" access to /dev/gpiochip* (Moonraker light switch)
+# Install to /etc/udev/rules.d/60-gpiochip.rules and add user pi to group gpio
+SUBSYSTEM=="gpio", KERNEL=="gpiochip*", GROUP="gpio", MODE="0660"
