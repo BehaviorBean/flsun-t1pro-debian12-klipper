@@ -95,6 +95,7 @@ Weicht dein Drucker ab, etwa mit einer anderen Platinenrevision oder einem ander
 | Hotend-Relais (PD6), Heizungen, Lüfter, Filamentsensor | ✅ |
 | Mainsail, Upload aus dem Slicer („Hochladen und drucken“ im FLSun Slicer/Orca) | ✅ |
 | Webcam 1080p über Crowsnest | ✅ ca. 17 fps mit Belichtungsautomatik (30 fps mit fester Belichtung möglich, aber dunkel) |
+| Pause (parkt vorne) / Abbruch (fährt nach oben wie im Werksystem) | ✅ |
 | Bauraumlicht als Schalter + Makros | ✅ |
 | KlipperScreen auf dem 480×272-Touchdisplay | ✅ (Kamera-Seite deaktiviert, siehe Fehlersuche) |
 | OctoEverywhere für Klipper, OctoApp-Begleitdienst | ✅ (KIAUH-Erweiterungen) |
@@ -416,6 +417,8 @@ Nach einem Flash in der printer.cfg `[adxl345]` und `[resonance_tester]` wieder 
 | Lichtschalter: „device or resource busy“ | GPIO108 noch per sysfs freigegeben → `echo 108 \| sudo tee /sys/class/gpio/unexport` |
 | Einige `grep`-Zombieprozesse unter polkitd | harmlos; `sudo systemctl restart polkit` räumt auf |
 | Eingefügte mehrzeilige Befehle „verschwinden“ | das erste `sudo` fragt nach dem Passwort und schluckt die eingefügten Zeilen → vorher `sudo -v` |
+| Erste Schicht löst sich, Teil wird mitgeschleift | Fett/Fingerabdrücke auf der Druckplatte → mit Isopropanol reinigen; bei schmalen Teilen Brim und Z-Hop (0,4 mm) |
+| Feine Fäden am Teil | altes FLSun-Profil: 230 °C und Z-Hop 0 → 220 °C (PLA+) und Z-Hop 0,4 mm |
 | Werksystem hängt am FLSun-Logo | die TUI braucht manchmal einige Minuten (wartet auf Klipper/Netz) |
 
 ---

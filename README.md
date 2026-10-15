@@ -90,6 +90,7 @@ If your printer differs (other board revision, other FLSun update), the scripts 
 | Hotend relay (PD6), heaters, fans, filament sensor | ✅ |
 | Mainsail, slicer upload ("upload and print" from FLSun Slicer/Orca) | ✅ |
 | Webcam 1080p via Crowsnest | ✅ ~17 fps with auto exposure (30 fps possible with fixed exposure, but dark) |
+| Pause (parks at the front) / cancel (homes to the top, like the stock system) | ✅ |
 | Chamber light as switch + macros | ✅ |
 | KlipperScreen on the 480×272 touch display | ✅ (camera page disabled, see troubleshooting) |
 | OctoEverywhere for Klipper, OctoApp companion | ✅ (KIAUH extensions) |
@@ -403,6 +404,8 @@ After flashing, re-enable `[adxl345]` / `[resonance_tester]` in printer.cfg.
 | Light switch: "device or resource busy" | GPIO108 still exported via sysfs → `echo 108 \| sudo tee /sys/class/gpio/unexport` |
 | A few `grep` zombie processes under polkitd | harmless; `sudo systemctl restart polkit` clears them |
 | Pasted multi-line commands "disappear" | the first `sudo` asked for the password and swallowed the pasted lines → run `sudo -v` first |
+| First layer comes loose, part is dragged along | grease/fingerprints on the build plate → clean it with isopropyl alcohol; for narrow parts use a brim and Z hop (0.4 mm) |
+| Fine strings on the part | old FLSun profile: 230 °C and Z hop 0 → 220 °C (PLA+) and Z hop 0.4 mm |
 | Stock system hangs at the FLSun logo | its TUI sometimes takes a few minutes (waits for Klipper/network) |
 
 ---
